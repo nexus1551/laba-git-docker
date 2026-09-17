@@ -1,2 +1,2 @@
 # Nginx Docker Project
-Run: docker build -t nginx-site .
+Ну в общем это первая моя нормальная работа на GitHub, строго не судите пж
