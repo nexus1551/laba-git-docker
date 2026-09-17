@@ -1,1 +1,131 @@
-<h1>Static Server</h1> <h3>prod by nexus</h3>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Фролов Егор Денисович</title>
+    <style>
+        /* Сброс базовых отступов */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Настройки фона и шрифтов (Черно-белая гамма) */
+        body {
+            background-color: #000000;
+            color: #ffffff;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            overflow: hidden;
+            user-select: none; /* Запрет выделения текста для удобства интерактива */
+        }
+
+        /* Контейнер для текста с мягким проявлением */
+        .container {
+            padding: 20px;
+            animation: fadeIn 1.2s ease-out;
+        }
+
+        /* Стили для ФИО */
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            line-height: 1.2;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            border-bottom: 2px solid #ffffff;
+            padding-bottom: 15px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Стили для каждой отдельной буквы */
+        h1 span {
+            display: inline-block;
+            transition: transform 0.2s ease, color 0.2s ease;
+            cursor: default;
+        }
+
+        /* Эффект увеличения буквы при наведении */
+        h1 span:hover {
+            transform: scale(1.4); /* Увеличение буквы на 40% */
+            color: #aaaaaa;        /* Легкое изменение цвета для акцента */
+        }
+
+        /* Разделитель для сохранения пробелов между словами */
+        h1 span.space {
+            width: 15px;
+        }
+
+        /* Стили для группы */
+        p {
+            font-size: 1.5rem;
+            font-weight: 300;
+            letter-spacing: 4px;
+            color: #a0a0a0;
+            text-transform: uppercase;
+            margin-top: 15px;
+        }
+
+        /* Анимация плавного появления при загрузке */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Адаптивность для мобильных экранов */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            p {
+                font-size: 1.1rem;
+            }
+            h1 span.space {
+                width: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Текст изначально написан обычно, скрипт ниже сам разобьет его на буквы -->
+        <h1 id="name">Фролов Егор Денисович</h1>
+        <p>группа 54-11</p>
+    </div>
+
+    <script>
+        // Скрипт, который автоматически оборачивает каждую букву в тег <span>
+        const nameElement = document.getElementById('name');
+        const text = nameElement.textContent;
+        nameElement.textContent = ''; // Очищаем исходный текст
+
+        for (let char of text) {
+            const span = document.createElement('span');
+            if (char === ' ') {
+                span.classList.add('space'); // Если это пробел, добавляем специальный класс
+            } else {
+                span.textContent = char;
+            }
+            nameElement.appendChild(span);
+        }
+    </script>
+
+</body>
+</html>
+
