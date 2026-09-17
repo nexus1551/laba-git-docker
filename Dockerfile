@@ -1,1 +1,5 @@
-FROM nginx:alpine \n COPY nginx.conf /etc/nginx/nginx.conf \n COPY index.html 404.html /usr/share/nginx/html/
+FROM nginx:alpine
+COPY nginx.conf /etc/nginx/nginx.conf
+COPY index.html /usr/share/nginx/html/
+COPY 404.html /usr/share/nginx/html/
+

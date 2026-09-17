@@ -1,1 +1,171 @@
-<html><body><h1>Страница не найдена, возможно это сломал Фролов Егор Денисович</h1></body></html>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ошибка 404 — Страница не найдена</title>
+    <style>
+        /* Сброс базовых отступов */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Настройки фона и шрифтов (Черно-белая гамма) */
+        body {
+            background-color: #000000;
+            color: #ffffff;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            overflow: hidden;
+            user-select: none;
+        }
+
+        /* Контейнер для текста с мягким проявлением */
+        .container {
+            padding: 20px;
+            animation: fadeIn 1.2s ease-out;
+        }
+
+        /* Главный крупный заголовок ошибки */
+        h1 {
+            font-size: 6rem;
+            font-weight: 900;
+            letter-spacing: -2px;
+            line-height: 1;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Стили для каждой отдельной цифры/буквы */
+        h1 span, h2 span {
+            display: inline-block;
+            transition: transform 0.2s ease, color 0.2s ease;
+            cursor: default;
+        }
+
+        /* Эффект увеличения при наведении */
+        h1 span:hover, h2 span:hover {
+            transform: scale(1.4);
+            color: #aaaaaa;
+        }
+
+        /* Разделитель для сохранения пробелов */
+        h2 span.space {
+            width: 12px;
+        }
+
+        /* Подзаголовок страницы */
+        h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+            border-bottom: 2px solid #ffffff;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Описание ошибки */
+        p {
+            font-size: 1.2rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            color: #a0a0a0;
+            text-transform: uppercase;
+            margin-bottom: 40px;
+        }
+
+        /* Интерактивная кнопка возврата */
+        .btn-home {
+            display: inline-block;
+            color: #ffffff;
+            text-decoration: none;
+            border: 2px solid #ffffff;
+            padding: 12px 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* Эффект при наведении на кнопку */
+        .btn-home:hover {
+            background-color: #ffffff;
+            color: #000000;
+        }
+
+        /* Анимация плавного появления при загрузке */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Адаптивность для мобильных экранов */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 4rem;
+            }
+            h2 {
+                font-size: 1.3rem;
+            }
+            p {
+                font-size: 0.9rem;
+            }
+            h2 span.space {
+                width: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Скрипт автоматически разобьет цифры и буквы на интерактивные элементы -->
+        <h1 class="interactive-text">404</h1>
+        <h2 class="interactive-text">Ошибка</h2>
+        <p>Страница не найдена</p>
+        
+        <!-- Ссылка на вашу главную страницу -->
+        <a href="index.html" class="btn-home">Вернуться на главную</a>
+    </div>
+
+    <script>
+        // Находим все элементы с классом interactive-text и разбиваем их содержимое на буквы
+        const targetElements = document.querySelectorAll('.interactive-text');
+        
+        targetElements.forEach(element => {
+            const text = element.textContent;
+            element.textContent = ''; 
+
+            for (let char of text) {
+                const span = document.createElement('span');
+                if (char === ' ') {
+                    span.classList.add('space');
+                } else {
+                    span.textContent = char;
+                }
+                element.appendChild(span);
+            }
+        });
+    </script>
+
+</body>
+</html>
+
